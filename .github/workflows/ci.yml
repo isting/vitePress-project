@@ -5,6 +5,11 @@ on:
   # 手动运行工作流程（workflow_dispatch 事件触发器配置后可以在actions下手动运行工作流）
   workflow_dispatch:
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest  #指定服务器的运行环境：最新版本ubuntu
@@ -41,7 +46,7 @@ jobs:
         # 自定义环境变量
         with:
           # 指定仓库：你要发布的仓库路径名
-          repository-name: msyuan/vitePress-project
+          repository-name: isting/vitePress-project
           # 部署到 deploy-pages 分支，也就是部署后提交到那个分支
           branch: deploy-pages
           # 填写打包好的目录名称路径，本项目配置在根目录
